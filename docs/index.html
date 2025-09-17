@@ -218,36 +218,46 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p>¿Tienes un proyecto interesante? Escríbeme.</p>
-        <p>📧 <a href="mailto:camiloarroyo78@gmail.com">camiloarroyo78@gmail.com</a></p>
-        <p>📍 Valledupar, Colombia</p>
-      </div>
-      <form class="contact-form">
-        <div class="form-group">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" required/>
-        </div>
-        <div class="form-group">
-          <label for="correo">Correo electrónico</label>
-          <input type="email" id="correo" required/>
-        </div>
-        <div class="form-group">
-          <label for="asunto">Asunto</label>
-          <input type="text" id="asunto" required/>
-        </div>
-        <div class="form-group">
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Enviar</button>
-      </form>
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2>Contacto</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>¿Tienes un proyecto interesante? Escríbeme.</p>
+      <p>📧 <a href="mailto:camiloarroyo78@gmail.com">camiloarroyo78@gmail.com</a></p>
+      <p>📍 Valledupar, Colombia</p>
     </div>
-  </section>
+
+    <!-- Formulario conectado a Formspree -->
+    <form class="contact-form" action="https://formspree.io/f/mldwyakr" method="POST">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="_replyto" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="asunto">Asunto</label>
+        <input type="text" id="asunto" name="asunto" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+      </div>
+
+      <!-- Campo oculto para redirigir tras enviar -->
+      <input type="hidden" name="_next" value="https://tuusuario.github.io/tu-repo/gracias.html" />
+
+      <button type="submit" class="submit-btn">Enviar</button>
+    </form>
+  </div>
+</section>
+
 
   <!-- FOOTER -->
   <footer>
