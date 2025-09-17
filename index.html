@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portafolio - Camilo Andrés Arroyo Castilla</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#0a0f1f;color:#e5f7ee;line-height:1.6}
+
+    :root{
+      --primary:#00e887;   /* verde neón */
+      --secondary:#19c37d;
+      --accent:#581dbd;    /* púrpura apoyo */
+      --surface:#111827;
+      --text:#e5f7ee;
+      --muted:#94a3b8;
+    }
+
+    /* Header */
+    header{padding:1rem 2rem;background:#0b1324;position:sticky;top:0;z-index:10}
+    nav{display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:1.5rem;font-weight:700;color:var(--primary);text-decoration:none}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{color:#fff;text-decoration:none;position:relative;font-weight:500}
+    .nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:.3s}
+    .nav-links a:hover::after{width:100%}
+
+    /* Secciones base */
+    section{padding:4rem 2rem;max-width:1200px;margin:auto}
+    h2{font-size:2rem;margin-bottom:1.5rem;color:var(--primary)}
+
+    /* Hero */
+    .hero{display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:0 1rem;background:#0a0f1f}
+    .hero h1{font-size:2.8rem;font-weight:700;margin-bottom:1rem;color:#e5f7ee}
+    .hero h1 .highlight{color:var(--primary);text-shadow:0 0 15px #00e88790}
+    .hero p{font-size:1.2rem;color:var(--muted);margin-bottom:2rem}
+    .cta-button{padding:1rem 2rem;background:var(--primary);color:#0a0f1f;font-weight:700;border-radius:30px;text-decoration:none;transition:.3s}
+    .cta-button:hover{background:#19c37d;color:#fff}
+
+    /* SOBRE MI */
+    .about{background:#0b1324;border-radius:12px;padding:2rem}
+    .about p{margin-bottom:2rem;color:var(--text)}
+    .about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+    .about-col h3{color:var(--accent);margin-bottom:1rem}
+    .about-col ul{list-style:none}
+    .about-col li{margin-bottom:.8rem;color:var(--muted)}
+    .about-col li strong{display:block;color:var(--text)}
+    .cert-btn{margin-top:1rem;display:inline-block;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;font-weight:600}
+
+    /* ICONOS HABILIDADES */
+    .skills-icons{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+    .skills-icons img{width:40px;height:40px}
+
+    /* EXPERIENCIA */
+    .experience-card{background:#0b1324;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem}
+    .experience-card h3{color:var(--accent);margin-bottom:.5rem}
+    .experience-card h4{margin-bottom:.5rem;color:var(--text)}
+    .duration{font-size:.9rem;color:var(--muted);margin-bottom:1rem;display:block}
+    .experience-card ul{list-style:none;padding-left:0}
+    .experience-card li{margin:.5rem 0;color:var(--muted)}
+
+    /* EDUCACIÓN */
+    .education-card{background:#0b1324;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem}
+    .education-card h3{color:var(--accent);margin-bottom:.5rem}
+    .education-card h4{margin-bottom:.5rem;color:var(--text)}
+    .education-card span{color:var(--muted);font-size:.9rem}
+
+    /* PROYECTOS */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .project-card{background:#0b1324;padding:1.5rem;border-radius:12px;transition:.3s}
+    .project-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,232,135,.25)}
+    .project-card h3{color:var(--primary);margin-bottom:.5rem}
+    .project-card p{color:var(--muted);margin-bottom:1rem}
+    .project-tech{display:flex;gap:.5rem;flex-wrap:wrap}
+    .tech-tag{background:rgba(255,255,255,.06);border:1px solid rgba(148,163,184,.15);padding:.25rem .6rem;border-radius:999px;font-size:.9rem;color:#bbf7d0}
+
+    /* CONTACTO */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+    .contact-info p{color:var(--muted);margin-bottom:1rem}
+    .contact-info a{color:#fff;text-decoration:none}
+    .contact-form{background:#0b1324;padding:2rem;border-radius:12px}
+    .form-group{margin-bottom:1rem}
+    .form-group label{display:block;margin-bottom:.3rem;color:var(--accent);font-weight:600}
+    .form-group input,.form-group textarea{width:100%;padding:.8rem;border-radius:6px;border:1px solid #1e293b;background:#111827;color:#fff}
+    .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--primary)}
+    .submit-btn{width:100%;background:var(--primary);border:none;padding:.8rem;border-radius:6px;font-weight:700;color:#0a0f1f;cursor:pointer}
+    .submit-btn:hover{background:#19c37d;color:#fff}
+
+    footer{text-align:center;padding:2rem;background:#0b1324;color:#94a3b8;font-size:.9rem;margin-top:2rem}
+
+    @media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#" class="logo">CA</a>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#educacion">Educación</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div>
+      <h1>Hola, soy <span class="highlight">Camilo Arroyo</span></h1>
+      <p>Ingeniero de Sistemas | .NET & Angular Developer</p>
+      <a href="#sobre-mi" class="cta-button">Conoce mi trabajo</a>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi">
+    <div class="about">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy Ingeniero de Sistemas con experiencia en desarrollo fullstack, especializado en .NET y Angular.
+        Me apasiona crear experiencias web eficientes y escalables, optimizando procesos y entregando soluciones tecnológicas de valor.
+      </p>
+      <div class="about-grid">
+        <div class="about-col">
+          <h3>Educación</h3>
+          <ul>
+            <li>
+              <strong>Universidad Popular del Cesar</strong>
+              Ingeniería de Sistemas <br/><small>(2020 – Actual)</small>
+            </li>
+          </ul>
+        </div>
+        <div class="about-col">
+          <h3>Cursos</h3>
+          <ul>
+            <li>Programación Web desde Cero</li>
+            <li>Responsive Web Design</li>
+            <li>Backend Development & APIs</li>
+            <li>GitHub Foundations</li>
+          </ul>
+          <a href="#" class="cert-btn">Ver certificados</a>
+        </div>
+        <div class="about-col">
+          <h3>Habilidades</h3>
+          <div class="skills-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades">
+    <h2>Habilidades Técnicas</h2>
+    <div class="about-grid">
+      <div class="about-col"><h3>.NET</h3><p>Desarrollo de APIs y servicios robustos.</p></div>
+      <div class="about-col"><h3>Angular</h3><p>Frontend interactivo y escalable.</p></div>
+      <div class="about-col"><h3>JavaScript & TS</h3><p>Aplicaciones web modernas.</p></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia">
+    <h2>Experiencia Laboral</h2>
+    <div class="experience-card">
+      <h3>Desarrollador Fullstack</h3>
+      <h4>FISE Consultores ECP SAS</h4>
+      <span class="duration">Feb 2022 – Presente</span>
+      <ul>
+        <li>Desarrollo de APIs en .NET</li>
+        <li>Interfaces con Angular</li>
+        <li>Optimización de procesos contables</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDUCACION -->
+  <section id="educacion">
+    <h2>Educación</h2>
+    <div class="education-card">
+      <h3>Ingeniería de Sistemas</h3>
+      <h4>Universidad Popular del Cesar</h4>
+      <span>2020 – Actual</span>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <h2>Proyectos Destacados</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Sistema Web FISE</h3>
+        <p>App web completa con .NET y Angular para procesos contables.</p>
+        <div class="project-tech">
+          <span class="tech-tag">.NET</span><span class="tech-tag">Angular</span><span class="tech-tag">SQL Server</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>API de Gestión Contable</h3>
+        <p>API optimizada en .NET para automatizar procesos financieros.</p>
+        <div class="project-tech">
+          <span class="tech-tag">C#</span><span class="tech-tag">Entity Framework</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>¿Tienes un proyecto interesante? Escríbeme.</p>
+        <p>📧 <a href="mailto:camiloarroyo78@gmail.com">camiloarroyo78@gmail.com</a></p>
+        <p>📍 Valledupar, Colombia</p>
+      </div>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" required/>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" required/>
+        </div>
+        <div class="form-group">
+          <label for="asunto">Asunto</label>
+          <input type="text" id="asunto" required/>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Camilo Andrés Arroyo Castilla – Todos los derechos reservados.
+  </footer>
+</body>
+</html>
