@@ -234,7 +234,7 @@
         font-size: 0.9rem;
       }
 
-      /* PROYECTOS */
+     /* PROYECTOS */
       .projects-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -242,13 +242,24 @@
       }
       .project-card {
         background: #0b1324;
-        padding: 1.5rem;
+        padding: 0;
         border-radius: 12px;
         transition: 0.3s;
+        overflow: hidden;
       }
       .project-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 25px rgba(0, 232, 135, 0.25);
+      }
+      .project-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background: #1e293b;
+        border-bottom: 2px solid var(--primary);
+      }
+      .project-content {
+        padding: 1.5rem;
       }
       .project-card h3 {
         color: var(--primary);
@@ -628,26 +639,47 @@
     </section>
 
     <!-- PROYECTOS -->
-    <section id="proyectos">
+     <section id="proyectos">
       <h2>Proyectos Destacados</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <h3>Sistema ERP Web Fisco</h3>
-          <p>App web en .NET 4.7, JavaScript y HTLM 5 para procesos contables departamentales y municipales.</p>
-          <div class="project-tech">
-            <span class="tech-tag">.NET</span
-            ><span class="tech-tag">JavaScript</span
-            ><span class="tech-tag">SQL Server</span>
+          <img
+            src="./proyecto-fisco.png"
+            alt="Sistema ERP Fisco"
+            class="project-image"
+            
+          />
+          <div class="project-content">
+            <h3>Sistema ERP Web Fisco</h3>
+            <p>
+              App web en .NET 4.7, JavaScript y HTLM 5 para procesos contables
+              departamentales y municipales.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">.NET</span
+              ><span class="tech-tag">JavaScript</span
+              ><span class="tech-tag">SQL Server</span>
+            </div>
           </div>
         </div>
         <div class="project-card">
-          <h3>Sistema ERP Web FiscoFinanciero</h3>
-          <p>App web en .NET 9, Angular 18, DevExtreme y SQL Server para automatizar procesos financieros.</p>
-          <div class="project-tech">
-            <span class="tech-tag">.NET 9</span
-            ><span class="tech-tag">Angular</span>
-            <span class="tech-tag">DevExtreme</span>
-            <span class="tech-tag">SQL Server</span>
+          <img
+            src="./proyecto-fiscofinanciero.png"
+            alt="Sistema ERP FiscoFinanciero"
+            class="project-image"
+          />
+          <div class="project-content">
+            <h3>Sistema ERP Web FiscoFinanciero</h3>
+            <p>
+              App web en .NET 9, Angular 18, DevExtreme y SQL Server para
+              automatizar procesos financieros.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">.NET 9</span
+              ><span class="tech-tag">Angular</span>
+              <span class="tech-tag">DevExtreme</span>
+              <span class="tech-tag">SQL Server</span>
+            </div>
           </div>
         </div>
       </div>
